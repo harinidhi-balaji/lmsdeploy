@@ -1,5 +1,5 @@
 # Use OpenJDK 17 runtime as base image
-FROM openjdk:17-jre-slim
+FROM paketobuildpacks/run-java-21-ubi8-base:latest
 
 # Set working directory in container
 WORKDIR /app
