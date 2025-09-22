@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: hari-lms-test
+
+  # Test Database Configuration (H2 in-memory)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  # JPA Configuration for Tests
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+  # SQL Initialization for Tests
+  sql:
+    init:
+      mode: never # Don't run data.sql in tests
+
+  # Disable auto-configurations for web tests
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+
+# JWT Test Configuration
+jwt:
+  secret: testSecretKey12345678901234567890123456789012345678901234567890
+  expiration: 86400000
+
+# Logging for tests
+logging:
+  level:
+    org.springframework.security: WARN
+    org.hibernate: WARN
+    root: WARN
